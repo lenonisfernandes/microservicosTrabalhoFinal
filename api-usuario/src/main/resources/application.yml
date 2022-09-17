@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://pos-db.cqryu1enxyeo.us-east-1.rds.amazonaws.com:5432/notas
-    username: postgres
-    password: 26612430
+    username: 
+    password: 
 
   jpa:
     hibernate:
