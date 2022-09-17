@@ -1,11 +1,12 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/notas
-    username: logusdev
-    password: logus
+    url: jdbc:postgresql://pos-db.cqryu1enxyeo.us-east-1.rds.amazonaws.com:5432/notas
+    username: postgres
+    password: 26612430
 
   jpa:
-    hibernate.ddl-auto: update
+    hibernate:
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:

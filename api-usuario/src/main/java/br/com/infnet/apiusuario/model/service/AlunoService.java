@@ -37,5 +37,9 @@ public class AlunoService {
 	public Aluno obterPorId(Integer id) {
 		return alunoRepository.findById(id).get();
 	}
+	
+	public Aluno validar(String login, String senha) {
+		return alunoRepository.findByLoginAndSenha(login, senha);
+	}
 
 }

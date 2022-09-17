@@ -1,0 +1,22 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+  application:
+    name: APPNOTAS
+
+eureka: 
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+      register-with-eureka: true
+      fetch-registry: true
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+
+
+      
+server:
+  port: 8083

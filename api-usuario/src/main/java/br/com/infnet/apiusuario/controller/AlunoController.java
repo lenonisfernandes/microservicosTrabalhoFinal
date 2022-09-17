@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.infnet.apiusuario.model.domain.Aluno;
@@ -45,6 +46,13 @@ public class AlunoController {
 	@GetMapping("/listar/{id}")
 	public Aluno getById(@PathVariable Integer id) {
 		return alunoService.obterPorId(id);
+	}
+	
+	@PostMapping("/validar")
+	public Aluno validar(@RequestParam String login, @RequestParam String senha) {
+		System.out.println(login);
+		System.out.println(senha);
+		return alunoService.validar(login, senha);
 	}
 
 }

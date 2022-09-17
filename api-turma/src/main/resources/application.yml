@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/notas
-    username: logusdev
-    password: logus
+    url: jdbc:postgresql://pos-db.cqryu1enxyeo.us-east-1.rds.amazonaws.com:5432/notas
+    username: postgres
+    password: 26612430
 
   jpa:
     hibernate.ddl-auto: update
@@ -30,3 +30,19 @@ eureka:
       fetch-registry: true
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        register-health-indicator: true
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state: 5s
+        failure-rate-threshold: 50
+        event-consumer-buffer-size: 10
+    instances:
+      alunoService:
+        base-config: default

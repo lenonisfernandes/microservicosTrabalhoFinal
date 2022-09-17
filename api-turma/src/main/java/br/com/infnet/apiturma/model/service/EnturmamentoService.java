@@ -30,10 +30,11 @@ public class EnturmamentoService {
 	public void trocarTurma(Aluno aluno, Turma turma) {
 		Enturmamento oldEntur = acharEnturmanetoAtivo(aluno);
 		if (oldEntur.getTurma()!=turma) {
-			Enturmamento newEntur = oldEntur;
-			newEntur.setId(null);
+			Enturmamento newEntur = new Enturmamento();
 			newEntur.setEntrada(LocalDate.now());
 			newEntur.setTurma(turma);
+			newEntur.setAluno(aluno);
+			newEntur.setAtivo(true);
 			oldEntur.setAtivo(false);
 			enturmamentoRepository.save(newEntur);
 			enturmamentoRepository.save(oldEntur);
