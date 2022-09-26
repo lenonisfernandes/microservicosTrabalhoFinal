@@ -19,8 +19,8 @@ public class AlunoServiceRestTemplate {
 				.getForObject("http://USUARIO/aluno/listar/{id}", Aluno.class, id);
 		return aluno;
 	}
-	public String getAlunoFallback(Exception ex) {
-		return ex.getMessage();
+	public Aluno getAlunoFallback(Exception ex) {
+		return new Aluno();
 	}
 
 }
